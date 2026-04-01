@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ahmed Zaky - Agro Portfolio</title>
 <style>
-/* ---------- Reset & Fonts ---------- */
 body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -15,7 +14,7 @@ body {
 }
 a { text-decoration: none; color: #2E7D32; }
 
-/* ---------- Navbar ---------- */
+/* Navbar */
 nav {
     position: sticky;
     top: 0;
@@ -38,7 +37,7 @@ nav button {
 }
 nav button:hover { background-color: #FBC02D; color: #2E7D32; }
 
-/* ---------- Header with Glow Image ---------- */
+/* Header */
 header {
     text-align: center;
     padding: 80px 20px 40px 20px;
@@ -47,11 +46,7 @@ header {
     position: relative;
     clip-path: ellipse(100% 90% at 50% 0%);
 }
-.profile-container {
-    position: relative;
-    display: inline-block;
-    margin-bottom: 20px;
-}
+.profile-container { display: inline-block; margin-bottom: 20px; }
 .profile-pic {
     width: 200px;
     height: 200px;
@@ -61,27 +56,42 @@ header {
     box-shadow: 0 0 20px rgba(251,192,42,0.7);
     transition: transform 0.3s, box-shadow 0.3s;
 }
-.profile-pic:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 35px rgba(251,192,42,1);
-}
+.profile-pic:hover { transform: scale(1.1); box-shadow: 0 0 35px rgba(251,192,42,1); }
 header h1 { font-size: 2.8em; margin-top: 15px; }
 header p { font-size: 1.3em; margin-top: 8px; }
 
-/* ---------- Sections ---------- */
-section {
-    padding: 50px 20px;
+/* Accordion */
+.accordion {
     max-width: 900px;
-    margin: 40px auto;
+    margin: 30px auto;
     border-radius: 15px;
+    overflow: hidden;
     box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-    display: none;
+    background-color: #ffffff;
 }
-#summary { background-color: #ffffff; }
-#experience { background-color: #E8F5E9; }
-#about { background-color: #ffffff; }
-
-/* ---------- Experience Cards ---------- */
+.accordion-item { border-bottom: 1px solid #ccc; }
+.accordion-header {
+    padding: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    background-color: #81C784;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.3s;
+}
+.accordion-header:hover { background-color: #66BB6A; }
+.accordion-header::after {
+    content: '\25BC';
+    transition: transform 0.3s;
+}
+.accordion-header.active::after { transform: rotate(180deg); }
+.accordion-content {
+    padding: 20px;
+    display: none;
+    background-color: #f9f9f9;
+}
 .experience-cards {
     display: flex;
     flex-wrap: wrap;
@@ -100,38 +110,17 @@ section {
 .card h3 { color: #2E7D32; font-size: 1.1em; margin-bottom: 8px; }
 .card p { margin: 5px 0; font-size: 0.95em; }
 
-/* ---------- Skills ---------- */
-.skill-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin-top: 20px;
-    justify-content: center;
-}
-.skill-item {
-    background-color: #81C784;
-    color: white;
-    padding: 10px 18px;
-    border-radius: 25px;
-    font-weight: bold;
-    transition: transform 0.2s;
-}
+/* Skills */
+.skill-list { display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; margin-top: 15px; }
+.skill-item { background-color: #2E7D32; color: white; padding: 10px 18px; border-radius: 25px; font-weight: bold; transition: transform 0.2s; }
 .skill-item:hover { transform: scale(1.1); }
 
-/* ---------- Footer ---------- */
-footer {
-    text-align: center;
-    padding: 25px;
-    background-color: #2E7D32;
-    color: white;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-}
+/* Footer */
+footer { text-align: center; padding: 25px; background-color: #2E7D32; color: white; border-top-left-radius: 20px; border-top-right-radius: 20px; }
 
-/* ---------- Responsive ---------- */
+/* Responsive */
 @media(max-width:600px){
     header h1 { font-size: 2em; }
-    nav { flex-direction: column; gap: 10px; }
     .experience-cards { flex-direction: column; gap: 15px; }
 }
 </style>
@@ -140,9 +129,9 @@ footer {
 
 <!-- Navbar -->
 <nav>
-    <button onclick="toggleSection('summary')">Summary</button>
-    <button onclick="toggleSection('experience')">Experience</button>
-    <button onclick="toggleSection('about')">About Me</button>
+    <button onclick="toggleAccordion(0)">Summary</button>
+    <button onclick="toggleAccordion(1)">Experience</button>
+    <button onclick="toggleAccordion(2)">About Me</button>
 </nav>
 
 <!-- Header -->
@@ -154,73 +143,90 @@ footer {
     <p>Mid-Level Operations Manager | Agricultural Engineer</p>
 </header>
 
-<!-- Summary -->
-<section id="summary">
-    <h2>Summary</h2>
-    <p>Experienced Agricultural Engineer and Operations Manager with expertise in crop health, cold storage, and supply chain management. Skilled in optimizing field operations and leading teams efficiently.</p>
-    <h3>Skills</h3>
-    <div class="skill-list">
-        <div class="skill-item">Operations & Supply Chain</div>
-        <div class="skill-item">Plant Health & Disease Control</div>
-        <div class="skill-item">Cold Storage & Logistics</div>
-        <div class="skill-item">Quality Assurance</div>
-        <div class="skill-item">Lean & Kaizen</div>
-        <div class="skill-item">Leadership</div>
-        <div class="skill-item">Problem-Solving</div>
-    </div>
-</section>
+<!-- Accordion -->
+<div class="accordion">
 
-<!-- Experience -->
-<section id="experience">
-    <h2>Experience</h2>
-    <div class="experience-cards">
-        <div class="card">
-            <h3>Operations Manager / Pathology Field Engineer</h3>
-            <p><strong>PepsiCo (Chipsy Egypt)</strong> | Feb 2024 – Present</p>
-            <p>Managed crop health, disease control, and cold storage operations. Supervised seasonal labor and ensured compliance with HSE and Quality standards.</p>
-        </div>
-        <div class="card">
-            <h3>Agricultural Engineer</h3>
-            <p><strong>Al-Hamad Company</strong> | Jan 2023 – Jun 2023</p>
-            <p>Handled supply chain management, shipment monitoring, and team supervision for efficient farm-to-factory operations.</p>
-        </div>
-        <div class="card">
-            <h3>Field Team Leader (Seasonal Labor)</h3>
-            <p><strong>Chipsy Operations (Al-Dakhla)</strong> | 2020 – 2021</p>
-            <p>Led field teams in agricultural operations, including roguing and harvesting.</p>
-        </div>
-        <div class="card">
-            <h3>Agricultural Worker (Seasonal Labor)</h3>
-            <p><strong>Chipsy Operations (Al-Salhiya)</strong> | 2019 – 2020</p>
-            <p>Participated in planting, fertilization, irrigation, and field monitoring activities.</p>
+    <!-- Summary -->
+    <div class="accordion-item">
+        <div class="accordion-header active">Summary</div>
+        <div class="accordion-content" style="display:block;">
+            <p>Experienced Agricultural Engineer and Operations Manager with expertise in crop health, cold storage, and supply chain management. Skilled in optimizing field operations and leading teams efficiently.</p>
+            <div class="skill-list">
+                <div class="skill-item">Operations & Supply Chain</div>
+                <div class="skill-item">Plant Health & Disease Control</div>
+                <div class="skill-item">Cold Storage & Logistics</div>
+                <div class="skill-item">Quality Assurance</div>
+                <div class="skill-item">Lean & Kaizen</div>
+                <div class="skill-item">Leadership</div>
+                <div class="skill-item">Problem-Solving</div>
+            </div>
         </div>
     </div>
-</section>
 
-<!-- About Me -->
-<section id="about">
-    <h2>About Me & Contact</h2>
-    <p><strong>Address:</strong> Future City, Cairo, Egypt</p>
-    <p><strong>Education:</strong> B.Sc. Agricultural Engineering</p>
-    <p><strong>Certificates:</strong> HACCP, ISO 22000, BRC</p>
-    <p><strong>Email:</strong> <a href="mailto:newemail@example.com">newemail@example.com</a></p>
-</section>
+    <!-- Experience -->
+    <div class="accordion-item">
+        <div class="accordion-header">Experience</div>
+        <div class="accordion-content">
+            <div class="experience-cards">
+                <div class="card">
+                    <h3>Operations Manager / Pathology Field Engineer</h3>
+                    <p><strong>PepsiCo (Chipsy Egypt)</strong> | Feb 2024 – Present</p>
+                    <p>Managed crop health, disease control, and cold storage operations. Supervised seasonal labor and ensured compliance with HSE and Quality standards.</p>
+                </div>
+                <div class="card">
+                    <h3>Agricultural Engineer</h3>
+                    <p><strong>Al-Hamad Company</strong> | Jan 2023 – Jun 2023</p>
+                    <p>Handled supply chain management, shipment monitoring, and team supervision for efficient farm-to-factory operations.</p>
+                </div>
+                <div class="card">
+                    <h3>Field Team Leader (Seasonal Labor)</h3>
+                    <p><strong>Chipsy Operations (Al-Dakhla)</strong> | 2020 – 2021</p>
+                    <p>Led field teams in agricultural operations, including roguing and harvesting.</p>
+                </div>
+                <div class="card">
+                    <h3>Agricultural Worker (Seasonal Labor)</h3>
+                    <p><strong>Chipsy Operations (Al-Salhiya)</strong> | 2019 – 2020</p>
+                    <p>Participated in planting, fertilization, irrigation, and field monitoring activities.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Me -->
+    <div class="accordion-item">
+        <div class="accordion-header">About Me</div>
+        <div class="accordion-content">
+            <p><strong>Address:</strong> Future City, Cairo, Egypt</p>
+            <p><strong>Education:</strong> B.Sc. Agricultural Engineering</p>
+            <p><strong>Certificates:</strong> HACCP, ISO 22000, BRC</p>
+            <p><strong>Email:</strong> <a href="mailto:newemail@example.com">newemail@example.com</a></p>
+        </div>
+    </div>
+
+</div>
 
 <!-- Footer -->
 <footer>
     <p>© 2026 Ahmed Zaky Salem</p>
 </footer>
 
-<!-- JS Toggle Sections -->
 <script>
-function toggleSection(id) {
-    const sections = ['summary','experience','about'];
-    sections.forEach(sec => {
-        document.getElementById(sec).style.display = (sec===id)?'block':'none';
+const accHeaders = document.querySelectorAll('.accordion-header');
+accHeaders.forEach((header, index) => {
+    header.addEventListener('click', () => {
+        accHeaders.forEach((h, i) => {
+            const content = h.nextElementSibling;
+            if(i===index){
+                h.classList.toggle('active');
+                content.style.display = (content.style.display==='block') ? 'none':'block';
+            } else {
+                h.classList.remove('active');
+                h.nextElementSibling.style.display='none';
+            }
+        });
     });
-}
-toggleSection('summary');
+});
 </script>
 
 </body>
-</html>
+</html> 
