@@ -1,25 +1,74 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>أحمد زكي | Portfolio</title>
+    <title>Ahmed Zaky | Professional Portfolio</title>
     <style>
-        body { background-color: #0f172a; color: white; font-family: sans-serif; text-align: center; padding: 50px 20px; }
-        h1 { color: #38bdf8; font-size: 2.5rem; }
-        p { color: #94a3b8; font-size: 1.2rem; }
-        .btn { display: inline-block; margin: 10px; padding: 12px 25px; border: 2px solid #38bdf8; color: #38bdf8; text-decoration: none; border-radius: 10px; font-weight: bold; }
-        .btn:hover { background: #38bdf8; color: #0f172a; }
+        :root { --bg: #0f172a; --card: #1e293b; --primary: #38bdf8; --text: #f8fafc; --secondary: #94a3b8; }
+        body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; margin: 0; padding: 20px; line-height: 1.6; }
+        .container { max-width: 650px; margin: auto; }
+        header { text-align: left; padding: 50px 0 20px 0; }
+        h1 { font-size: 2.5rem; margin: 0; color: var(--primary); }
+        h2 { color: var(--primary); border-bottom: 1px solid #334155; padding-bottom: 10px; margin-top: 40px; }
+        p { color: var(--secondary); font-size: 1.1rem; }
+        
+        .section { margin-bottom: 30px; }
+        .experience-item { background: var(--card); padding: 15px; border-radius: 12px; margin-bottom: 15px; border: 1px solid #334155; }
+        .experience-item h3 { margin: 0; color: white; }
+        
+        .story-card { background: var(--card); border-radius: 15px; overflow: hidden; margin-bottom: 30px; border: 1px solid #334155; }
+        .story-card img { width: 100%; height: auto; display: block; border-bottom: 1px solid #334155; }
+        .story-content { padding: 20px; }
+        
+        .btn-group { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
+        .btn { text-decoration: none; padding: 10px 20px; border-radius: 8px; font-weight: 600; border: 1px solid var(--primary); color: var(--primary); transition: 0.3s; }
+        .btn:hover { background: var(--primary); color: var(--bg); }
     </style>
 </head>
 <body>
-    <h1>أحمد زكي</h1>
-    <p>أهلاً بك في موقعي الشخصي</p>
-    <p>أعمل حالياً على تطوير المدونة لإضافة الصور والأعمال..</p>
-    
-    <div style="margin-top: 30px;">
-        <a href="https://wa.me/201000000000" class="btn">تواصل واتساب</a>
-        <a href="mailto:test@email.com" class="btn">إرسال إيميل</a>
+    <div class="container">
+        <header>
+            <h1>Ahmed Zaky</h1>
+            <p>Software Engineer & Tech Storyteller</p>
+            <div class="btn-group">
+                <a href="https://wa.me/yournumber" class="btn">WhatsApp</a>
+                <a href="mailto:your-email@example.com" class="btn">Email</a>
+                <a href="https://github.com/Gsaz-bot" class="btn">GitHub</a>
+            </div>
+        </header>
+
+        <section class="section">
+            <h2>About Me</h2>
+            <p>Passionate developer focused on building scalable web applications and sharing my journey through tech. I love solving complex problems and turning ideas into reality.</p>
+        </section>
+
+        <section class="section">
+            <h2>Experience</h2>
+            <div class="experience-item">
+                <h3>Full Stack Developer</h3>
+                <p>Currently building modern web solutions using React, Node.js, and Cloud technologies.</p>
+            </div>
+            <div class="experience-item">
+                <h3>Education</h3>
+                <p>Bachelor's Degree in Computer Science / Engineering.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>My Stories & Projects</h2>
+            <div class="story-card">
+                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" alt="Work Setup">
+                <div class="story-content">
+                    <h3>My Daily Workspace</h3>
+                    <p>This is where the magic happens. I spend most of my time here exploring new technologies and writing clean code.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer style="text-align: center; padding: 40px; color: #475569;">
+            <p>&copy; 2024 Ahmed Zaky. Built with ❤️ on GitHub.</p>
+        </footer>
     </div>
 </body>
 </html>
