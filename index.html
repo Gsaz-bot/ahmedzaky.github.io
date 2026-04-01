@@ -1,74 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ahmed Zaky | Professional Portfolio</title>
-    <style>
-        :root { --bg: #0f172a; --card: #1e293b; --primary: #38bdf8; --text: #f8fafc; --secondary: #94a3b8; }
-        body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; margin: 0; padding: 20px; line-height: 1.6; }
-        .container { max-width: 650px; margin: auto; }
-        header { text-align: left; padding: 50px 0 20px 0; }
-        h1 { font-size: 2.5rem; margin: 0; color: var(--primary); }
-        h2 { color: var(--primary); border-bottom: 1px solid #334155; padding-bottom: 10px; margin-top: 40px; }
-        p { color: var(--secondary); font-size: 1.1rem; }
-        
-        .section { margin-bottom: 30px; }
-        .experience-item { background: var(--card); padding: 15px; border-radius: 12px; margin-bottom: 15px; border: 1px solid #334155; }
-        .experience-item h3 { margin: 0; color: white; }
-        
-        .story-card { background: var(--card); border-radius: 15px; overflow: hidden; margin-bottom: 30px; border: 1px solid #334155; }
-        .story-card img { width: 100%; height: auto; display: block; border-bottom: 1px solid #334155; }
-        .story-content { padding: 20px; }
-        
-        .btn-group { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
-        .btn { text-decoration: none; padding: 10px 20px; border-radius: 8px; font-weight: 600; border: 1px solid var(--primary); color: var(--primary); transition: 0.3s; }
-        .btn:hover { background: var(--primary); color: var(--bg); }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ahmed Zaky - Agro Portfolio</title>
+<style>
+    /* --------- Fonts & Reset --------- */
+    body {
+        margin: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #FAF9F6; /* أبيض كريمي */
+        color: #333;
+        background-image: radial-gradient(#81C784 2px, transparent 2px);
+        background-size: 40px 40px;
+    }
+    a { text-decoration: none; color: #2E7D32; }
+    h1,h2,h3 { margin: 0.5em 0; }
+    p { line-height: 1.6; }
+
+    /* --------- Navbar --------- */
+    nav {
+        position: sticky;
+        top: 0;
+        background-color: #2E7D32;
+        color: white;
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        padding: 15px 0;
+        z-index: 1000;
+    }
+    nav a { color: white; font-weight: bold; transition: 0.3s; }
+    nav a:hover { color: #FBC02D; }
+
+    /* --------- Header --------- */
+    header {
+        text-align: center;
+        padding: 40px 20px;
+        background-color: #2E7D32;
+        color: white;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+    header h1 { font-size: 2.5em; }
+    header p { font-size: 1.2em; }
+
+    /* --------- Sections --------- */
+    section {
+        padding: 50px 20px;
+        max-width: 900px;
+        margin: 30px auto;
+        border-radius: 15px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    #summary { background-color: #ffffff; }
+    #experience { background-color: #E8F5E9; }
+    #skills { background-color: #ffffff; }
+
+    /* Skills */
+    .skill-list { display: flex; flex-wrap: wrap; gap: 15px; margin-top: 20px; }
+    .skill-item {
+        background-color: #81C784;
+        color: white;
+        padding: 10px 15px;
+        border-radius: 20px;
+        font-weight: bold;
+        transition: transform 0.2s;
+    }
+    .skill-item:hover { transform: scale(1.1); }
+
+    /* Experience items */
+    .job { margin-bottom: 25px; }
+    .job h3 { color: #2E7D32; }
+    .job p { margin: 5px 0; }
+
+    /* Footer */
+    footer {
+        text-align: center;
+        padding: 20px;
+        background-color: #2E7D32;
+        color: white;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+    }
+
+    /* Responsive */
+    @media(max-width:600px){
+        header h1 { font-size: 2em; }
+        nav { flex-direction: column; gap: 10px; }
+    }
+</style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Ahmed Zaky</h1>
-            <p>Software Engineer & Tech Storyteller</p>
-            <div class="btn-group">
-                <a href="https://wa.me/yournumber" class="btn">WhatsApp</a>
-                <a href="mailto:your-email@example.com" class="btn">Email</a>
-                <a href="https://github.com/Gsaz-bot" class="btn">GitHub</a>
-            </div>
-        </header>
 
-        <section class="section">
-            <h2>About Me</h2>
-            <p>Passionate developer focused on building scalable web applications and sharing my journey through tech. I love solving complex problems and turning ideas into reality.</p>
-        </section>
+<!-- Navbar -->
+<nav>
+    <a href="#summary">Summary</a>
+    <a href="#experience">Experience</a>
+    <a href="#skills">Skills</a>
+</nav>
 
-        <section class="section">
-            <h2>Experience</h2>
-            <div class="experience-item">
-                <h3>Full Stack Developer</h3>
-                <p>Currently building modern web solutions using React, Node.js, and Cloud technologies.</p>
-            </div>
-            <div class="experience-item">
-                <h3>Education</h3>
-                <p>Bachelor's Degree in Computer Science / Engineering.</p>
-            </div>
-        </section>
+<!-- Header -->
+<header>
+    <h1>Ahmed Zaky Salem</h1>
+    <p>Mid-Level Operations Manager | Agricultural Engineer</p>
+</header>
 
-        <section class="section">
-            <h2>My Stories & Projects</h2>
-            <div class="story-card">
-                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" alt="Work Setup">
-                <div class="story-content">
-                    <h3>My Daily Workspace</h3>
-                    <p>This is where the magic happens. I spend most of my time here exploring new technologies and writing clean code.</p>
-                </div>
-            </div>
-        </section>
+<!-- Summary Section -->
+<section id="summary">
+    <h2>Summary</h2>
+    <p>Agricultural Engineer with 3 to 5 years of comprehensive experience across the entire agricultural value chain, including field operations and large-scale cold storage management. Proven track record within the global food and beverage leader PepsiCo (Chipsy Egypt). Expert in managing the full crop cycle, from cultivation and health monitoring to post-harvest cold storage (10,000 to 30,000 tons capacity). Highly skilled in plant health management, implementing roguing programs, and disease control (virus and bacteria) to maintain seed quality. Adept at applying Lean and Kaizen methodologies for continuous improvement and operational efficiency.</p>
+</section>
 
-        <footer style="text-align: center; padding: 40px; color: #475569;">
-            <p>&copy; 2024 Ahmed Zaky. Built with ❤️ on GitHub.</p>
-        </footer>
+<!-- Experience Section -->
+<section id="experience">
+    <h2>Experience</h2>
+
+    <div class="job">
+        <h3>Operations Manager / Pathology Field Engineer - PepsiCo (Chipsy Egypt) | Feb 2024 – Present</h3>
+        <p><strong>Field Operations:</strong> Managed crop health and disease control across multiple seasons to maintain high production standards.</p>
+        <p><strong>Disease Management:</strong> Executed systematic Roguing plans to reduce losses and safeguard seed quality.</p>
+        <p><strong>Data-Driven Decisions:</strong> Conducted regular field tours across pivots to assess crop conditions and calculate disease incidence.</p>
+        <p><strong>Leadership:</strong> Supervised seasonal labor while strictly adhering to HSE, Agriculture, and Quality standards.</p>
+        <p><strong>Cold Storage & Logistics:</strong> Managed storage at Domyatic Group Complex including receiving, sorting, and grading.</p>
+        <p><strong>Compliance:</strong> Coordinated with the Ministry of Agriculture and Sadat Accreditation Department for seed certification.</p>
+        <p><strong>Key Achievements:</strong> East Owainat Farm (Late 2025): Reduced infection rates from 8% to 1.5% across 42 pivots. Ismailia Farm (2025 Season): Reduced disease incidence from 22.5% to 13% across 16 pivots. East Owainat Farm (2024 Season): Lowered viral/bacterial infection rates from 15% to 7% across 30 pivots.</p>
     </div>
+
+    <div class="job">
+        <h3>Agricultural Engineer - Al-Hamad Company | Jan 2023 – Jun 2023</h3>
+        <p>Managed supply chain and monitored farm shipments. Supervised delivery teams to ensure efficient product supply to PepsiCo and Farm Frites facilities. Handled all shipment documentation and ensured compliance with operational plans.</p>
+    </div>
+
+    <div class="job">
+        <h3>Field Team Leader (Seasonal Labor) - Chipsy Operations (Al-Dakhla) | 2020 – 2021</h3>
+        <p>Led field teams in agricultural operations and supervised roguing and harvesting activities.</p>
+    </div>
+
+    <div class="job">
+        <h3>Agricultural Worker (Seasonal Labor) - Chipsy Operations (Al-Salhiya) | 2019 – 2020</h3>
+        <p>Hands-on experience in planting, fertilization, irrigation, and field monitoring.</p>
+    </div>
+</section>
+
+<!-- Skills Section -->
+<section id="skills">
+    <h2>Skills</h2>
+    <div class="skill-list">
+        <div class="skill-item">Operations & Supply Chain Management</div>
+        <div class="skill-item">Plant Health & Disease Control</div>
+        <div class="skill-item">Cold Storage & Logistics</div>
+        <div class="skill-item">Quality Assurance (HACCP, ISO 22000, BRC)</div>
+        <div class="skill-item">Lean & Kaizen</div>
+        <div class="skill-item">Leadership & Large-scale Labor Management</div>
+        <div class="skill-item">Strategic Execution</div>
+        <div class="skill-item">Problem-Solving</div>
+        <div class="skill-item">Multi-departmental Coordination</div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>Email: <a href="mailto:zakya2211@outlook.sa">zakya2211@outlook.sa</a></p>
+</footer>
+
 </body>
 </html>
